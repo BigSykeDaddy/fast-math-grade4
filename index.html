@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Florida Grade 4 FAST Math — Study Sheet</title>
+  <meta name="description" content="One‑page study site for Florida Grade 4 FAST Math: clear explanations, worked examples, and auto‑checking practice questions." />
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: #151935;
+      --text: #e7ebff;
+      --muted: #b9c0ff;
+      --accent: #6aa6ff;
+      --accent-2: #9c7cff;
+      --good: #2ecc71;
+      --bad: #ff5c6c;
+      --warn: #ffbf4d;
+      --code: #0b0e1a;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 800px at 85% -10%, #1b2148, #0f1220 50%);
+      line-height: 1.5;
+    }
+
+    /* Layout */
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(21,25,53,0.9), rgba(21,25,53,0.5) 65%, rgba(21,25,53,0));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 16px 20px; }
+    .title { display: flex; gap: 16px; align-items: center; }
+    .title h1 { margin: 0; font-size: clamp(1.1rem, 0.85rem + 2.2vw, 2rem); letter-spacing: 0.3px; }
+    .badge { padding: 4px 10px; border-radius: 999px; background: #1f2550; color: var(--muted); font-size: 12px; border: 1px solid rgba(255,255,255,0.08) }
+
+    main { display: grid; grid-template-columns: 280px 1fr; gap: 20px; max-width: 1200px; margin: 20px auto; padding: 0 20px 40px; }
+
+    nav {
+      position: sticky; top: 72px; align-self: start; background: var(--card); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    nav h3 { margin: 8px 8px 4px; font-size: 14px; color: var(--muted); font-weight: 600; }
+    .toc { list-style: none; margin: 0; padding: 4px; }
+    .toc a { display: block; padding: 8px 10px; margin: 4px 0; text-decoration: none; color: var(--text); border-radius: 10px; font-size: 14px; }
+    .toc a:hover { background: #1b2148; }
+    .toc a.active { background: linear-gradient(90deg, rgba(106,166,255,0.15), rgba(156,124,255,0.15)); border: 1px solid rgba(255,255,255,0.08); }
+
+    section.unit { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 18px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    section.unit h2 { margin-top: 0; font-size: clamp(1rem, 0.8rem + 1.2vw, 1.4rem); }
+    p.lead { color: var(--muted); margin-top: -6px; }
+
+    details { background: #121631; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 12px; margin: 12px 0; }
+    details summary { cursor: pointer; font-weight: 600; }
+    details[open] { border-color: rgba(106,166,255,0.35); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .card { background: #121631; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; }
+
+    .q { background: #10132b; border: 1px dashed rgba(255,255,255,0.14); border-radius: 12px; padding: 10px; margin: 10px 0; }
+    .q label { display: block; font-size: 14px; margin: 6px 0 4px; }
+    .q input[type="number"], .q input[type="text"], .q select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: #0c0f22; color: var(--text); }
+    .q .row { display: flex; gap: 8px; align-items: center; }
+
+    .btn { --bgc: #1f2550; display: inline-flex; align-items: center; gap: 8px; background: var(--bgc); color: var(--text); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600; }
+    .btn:hover { filter: brightness(1.05); }
+    .btn.accent { --bgc: linear-gradient(90deg, #6aa6ff, #9c7cff); border: none; color: #0c0f22; }
+
+    .ans { margin-top: 6px; font-size: 14px; display: none; }
+    .ans.ok { color: var(--good); }
+    .ans.no { color: var(--bad); }
+
+    .ref { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; background: var(--code); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px; }
+
+    .tag { font-size: 12px; padding: 4px 8px; background: #1f2550; color: var(--muted); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; }
+
+    footer { text-align: center; color: var(--muted); opacity: 0.9; padding: 40px 0; }
+
+    /* Print */
+    @media print {
+      body { background: #fff; color: #000; }
+      header, nav, .actions { display: none !important; }
+      main { display: block; padding: 0; margin: 0; }
+      section.unit { break-inside: avoid; border: 1px solid #ddd; box-shadow: none; color: #000; background: #fff; }
+      .q input, .q select { border: 1px solid #888; color: #000; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap title">
+      <div class="badge">Florida • Grade 4 • FAST Math</div>
+      <h1>One‑Page Study Sheet — Explanations & Auto‑Check Practice</h1>
+      <div class="actions" style="margin-left:auto; display:flex; gap:8px;">
+        <button class="btn" onclick="window.print()" title="Print or save as PDF">🖨️ Print</button>
+        <button class="btn" onclick="toggleAnswers()" title="Reveal all answers on the page">👀 Toggle Answers</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <nav>
+      <h3>Jump to</h3>
+      <ul class="toc">
+        <li><a href="#unit1" class="active">1. Whole Numbers</a></li>
+        <li><a href="#unit2">2. Fractions & Decimals</a></li>
+        <li><a href="#unit3">3. Measurement & Conversions</a></li>
+        <li><a href="#unit4">4. Geometry & Angles</a></li>
+        <li><a href="#unit5">5. Data & Probability</a></li>
+        <li><a href="#unit6">6. Test Tips</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <!-- Unit 1 -->
+      <section id="unit1" class="unit">
+        <h2>1) Number Sense & Operations — Whole Numbers</h2>
+        <p class="lead">Place value • Rounding • Multi‑digit addition/subtraction • Multi‑digit multiplication/division • Estimation strategies</p>
+
+        <details>
+          <summary>Quick explanations</summary>
+          <div class="grid">
+            <div class="card"><strong>Place value</strong><br/>In 47,306 the 7 is in the <em>thousands</em> place (value = 7,000). Zeros are placeholders to keep values aligned.</div>
+            <div class="card"><strong>Rounding</strong><br/>Underline target place, look one place to the right (≥5 rounds up). Example: 47,306 rounded to nearest thousand → 47,000.</div>
+            <div class="card"><strong>Estimation</strong><br/>For 215 × 46, round to 200 × 50 = 10,000 to check reasonableness of your exact answer.</div>
+            <div class="card"><strong>Multiplication</strong><br/>Use area (box) model or partial products; align place values: 234 × 12 = (234×10) + (234×2).</div>
+            <div class="card"><strong>Division</strong><br/>Think “how many groups” or “how many in each group.” Use partial quotients (chunking): subtract big chunks repeatedly.</div>
+          </div>
+        </details>
+
+        <h3>Practice</h3>
+        <div class="q" data-answer="47000" data-kind="number">
+          <label>1. Round 47,306 to the nearest thousand.</label>
+          <input type="number" placeholder="Your answer" />
+          <div class="ans">Answer: 47,000</div>
+        </div>
+
+        <div class="q" data-answer="10000" data-kind="number">
+          <label>2. Estimate 215 × 46 by rounding to the nearest hundred and ten (200 × 50).</label>
+          <input type="number" placeholder="Your estimate" />
+          <div class="ans">Answer: 10,000</div>
+        </div>
+
+        <div class="q" data-answer="2808" data-kind="number">
+          <label>3. Compute exactly: 234 × 12</label>
+          <input type="number" />
+          <div class="ans">Answer: 2,808</div>
+        </div>
+
+        <div class="q" data-answer="63" data-kind="number">
+          <label>4. Use partial quotients: 504 ÷ 8</label>
+          <input type="number" />
+          <div class="ans">Answer: 63</div>
+        </div>
+
+        <button class="btn accent" onclick="checkBlock(this)">Check these 4</button>
+      </section>
+
+      <!-- Unit 2 -->
+      <section id="unit2" class="unit">
+        <h2>2) Fractions & Decimals</h2>
+        <p class="lead">Fraction models • Equivalents • Compare/Order • Add/Subtract like denominators • Multiply fraction × whole • Decimal ↔ fraction (tenths, hundredths)</p>
+
+        <details>
+          <summary>Quick explanations</summary>
+          <div class="grid">
+            <div class="card"><strong>Equivalent fractions</strong><br/>Multiply or divide numerator & denominator by the same number. 3/4 = 6/8 = 9/12.</div>
+            <div class="card"><strong>Compare fractions</strong><br/>Make common denominators or use number lines. 3/8 &lt; 1/2 because 3/8 = 0.375.</div>
+            <div class="card"><strong>Add/subtract (like denoms)</strong><br/>Add numerators, keep denominator. 3/8 + 2/8 = 5/8 (simplify if needed).</div>
+            <div class="card"><strong>Multiply fraction × whole</strong><br/>a/b × n = (a×n)/b. Example: 3/5 × 4 = 12/5 = 2 2/5.</div>
+            <div class="card"><strong>Decimals with 10s & 100s</strong><br/>3/10 = 0.3, 7/100 = 0.07, 45/100 = 0.45. Mix into money problems for intuition.</div>
+          </div>
+        </details>
+
+        <h3>Practice</h3>
+        <div class="q" data-answer="6/8" data-kind="frac">
+          <label>1. Write an equivalent fraction to 3/4 with denominator 8.</label>
+          <input type="text" placeholder="e.g., 6/8" />
+          <div class="ans">Answer: 6/8</div>
+        </div>
+
+        <div class="q" data-answer="5/8" data-kind="frac">
+          <label>2. 3/8 + 2/8 = ? (simplest form acceptable)</label>
+          <input type="text" placeholder="e.g., 5/8" />
+          <div class="ans">Answer: 5/8</div>
+        </div>
+
+        <div class="q" data-answer="12/5" data-alt="2 2/5" data-kind="frac">
+          <label>3. Multiply: 3/5 × 4 = ? (improper or mixed OK)</label>
+          <input type="text" placeholder="e.g., 12/5 or 2 2/5" />
+          <div class="ans">Answer: 12/5 (or 2 2/5)</div>
+        </div>
+
+        <div class="q" data-answer="0.45" data-kind="text">
+          <label>4. Convert 45/100 to decimal.</label>
+          <input type="text" placeholder="e.g., 0.45" />
+          <div class="ans">Answer: 0.45</div>
+        </div>
+
+        <button class="btn accent" onclick="checkBlock(this)">Check these 4</button>
+      </section>
+
+      <!-- Unit 3 -->
+      <section id="unit3" class="unit">
+        <h2>3) Measurement & Conversions</h2>
+        <p class="lead">US customary & metric units • Time • Reference sheet practice (like on the test)</p>
+
+        <details>
+          <summary>Quick explanations & reference</summary>
+          <div class="grid">
+            <div class="card"><strong>Length (US)</strong><br/>12 in = 1 ft • 3 ft = 1 yd • 1760 yd = 1 mi</div>
+            <div class="card"><strong>Capacity (US)</strong><br/>2 c = 1 pt • 2 pt = 1 qt • 4 qt = 1 gal</div>
+            <div class="card"><strong>Weight (US)</strong><br/>16 oz = 1 lb • 2000 lb = 1 ton</div>
+            <div class="card"><strong>Metric basics</strong><br/>100 cm = 1 m • 1000 m = 1 km • 1000 mL = 1 L • 1000 g = 1 kg</div>
+            <div class="card"><strong>Time</strong><br/>60 s = 1 min • 60 min = 1 hr • 24 hr = 1 day</div>
+          </div>
+          <p class="ref" aria-label="conversion note">Tip: set up a chain. Example: 6 feet → inches: 6 ft × 12 in/1 ft = 72 in.</p>
+        </details>
+
+        <h3>Practice</h3>
+        <div class="q" data-answer="72" data-kind="number">
+          <label>1. Convert 6 feet to inches.</label>
+          <input type="number" />
+          <div class="ans">Answer: 72</div>
+        </div>
+
+        <div class="q" data-answer="2" data-kind="number">
+          <label>2. How many quarts are in a half‑gallon?</label>
+          <input type="number" />
+          <div class="ans">Answer: 2</div>
+        </div>
+
+        <div class="q" data-answer="90" data-kind="number">
+          <label>3. Convert 1.5 hours to minutes.</label>
+          <input type="number" />
+          <div class="ans">Answer: 90</div>
+        </div>
+
+        <button class="btn accent" onclick="checkBlock(this)">Check these 3</button>
+      </section>
+
+      <!-- Unit 4 -->
+      <section id="unit4" class="unit">
+        <h2>4) Geometry & Angles</h2>
+        <p class="lead">Angle types • Measuring angles • Classifying shapes by properties (lines, angles)</p>
+
+        <details>
+          <summary>Quick explanations</summary>
+          <div class="grid">
+            <div class="card"><strong>Angle types</strong><br/>Acute (&lt;90°) • Right (=90°) • Obtuse (&gt;90° &lt;180°) • Straight (=180°)</div>
+            <div class="card"><strong>Protractor basics</strong><br/>Align center at vertex; one ray on 0°. Read the correct scale based on where the baseline ray sits.</div>
+            <div class="card"><strong>Shapes</strong><br/>Triangles by angles: acute, right, obtuse. Quadrilaterals: square, rectangle, rhombus, parallelogram, trapezoid.</div>
+          </div>
+        </details>
+
+        <h3>Practice</h3>
+        <div class="q" data-answer="right" data-kind="select">
+          <label>1. A 90° angle is called a…</label>
+          <select>
+            <option value="">Choose…</option>
+            <option>acute</option>
+            <option>right</option>
+            <option>obtuse</option>
+          </select>
+          <div class="ans">Answer: right</div>
+        </div>
+
+        <div class="q" data-answer="obtuse" data-kind="select">
+          <label>2. A 120° angle is…</label>
+          <select>
+            <option value="">Choose…</option>
+            <option>acute</option>
+            <option>right</option>
+            <option>obtuse</option>
+          </select>
+          <div class="ans">Answer: obtuse</div>
+        </div>
+
+        <div class="q" data-answer="parallelogram" data-kind="text">
+          <label>3. A quadrilateral with two pairs of parallel sides is a…</label>
+          <input type="text" placeholder="e.g., parallelogram" />
+          <div class="ans">Answer: parallelogram</div>
+        </div>
+
+        <button class="btn accent" onclick="checkBlock(this)">Check these 3</button>
+      </section>
+
+      <!-- Unit 5 -->
+      <section id="unit5" class="unit">
+        <h2>5) Data & Probability</h2>
+        <p class="lead">Read tables/graphs • Mode/Median/Range • Simple probability</p>
+
+        <details>
+          <summary>Quick explanations</summary>
+          <div class="grid">
+            <div class="card"><strong>Mode</strong><br/>Most frequent value. 3, 5, 5, 6 → mode = 5.</div>
+            <div class="card"><strong>Median</strong><br/>Middle value when ordered. If two middles, average them.</div>
+            <div class="card"><strong>Range</strong><br/>Max − Min.</div>
+            <div class="card"><strong>Probability</strong><br/>Favorable ÷ Total outcomes. From 5 red, 3 blue marbles: P(red) = 5/8.</div>
+          </div>
+        </details>
+
+        <h3>Practice</h3>
+        <div class="q" data-answer="5" data-kind="number">
+          <label>1. Find the mode: 3, 5, 5, 6, 6, 6, 2</label>
+          <input type="number" />
+          <div class="ans">Answer: 6</div>
+        </div>
+
+        <div class="q" data-answer="4" data-kind="number">
+          <label>2. Find the range: 2, 6, 4, 9</label>
+          <input type="number" />
+          <div class="ans">Answer: 7</div>
+        </div>
+
+        <div class="q" data-answer="1/2" data-alt="0.5" data-kind="frac">
+          <label>3. Probability of rolling an even number on a fair die?</label>
+          <input type="text" placeholder="e.g., 1/2 or 0.5" />
+          <div class="ans">Answer: 1/2 (or 0.5)</div>
+        </div>
+
+        <button class="btn accent" onclick="checkBlock(this)">Check these 3</button>
+      </section>
+
+      <!-- Unit 6: Tips -->
+      <section id="unit6" class="unit">
+        <h2>6) Test Tips & How to Use This Page</h2>
+        <div class="grid">
+          <div class="card">
+            <strong>Daily plan (15 minutes)</strong>
+            <ol>
+              <li>Pick any unit; read the Quick explanations (2–3 minutes).</li>
+              <li>Do the Practice block; click <em>Check</em> (8–10 minutes).</li>
+              <li>Review any you missed; show answers with <em>Toggle Answers</em> (2–3 minutes).</li>
+            </ol>
+          </div>
+          <div class="card">
+            <strong>Question types to expect</strong>
+            <ul>
+              <li>Number entry (type the answer)</li>
+              <li>Multiple choice / drop‑downs</li>
+              <li>Short text (fractions like 3/4)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>Parent coaching moves</strong>
+            <ul>
+              <li>Ask: “How do you know?” (builds reasoning)</li>
+              <li>Encourage sketching number lines, arrays, or fraction bars</li>
+              <li>Estimate first, then calculate exactly</li>
+              <li>Use money/time/recipes for real‑life problems</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Built for Grade 4 FAST Math prep • One page, printable, and self‑checking.
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // TOC active state on scroll
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = [...document.querySelectorAll('section.unit')];
+    const opts = { rootMargin: '-40% 0px -55% 0px', threshold: 0 };
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          tocLinks.forEach(a=>a.classList.remove('active'));
+          const link = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+          if(link) link.classList.add('active');
+        }
+      })
+    }, opts);
+    sections.forEach(sec=>obs.observe(sec));
+
+    // Answer checking
+    function normalizeFrac(str){
+      if(!str) return '';
+      const s = String(str).trim().toLowerCase();
+      return s.replace(/\s+/g,'');
+    }
+
+    function checkBlock(btn){
+      const unit = btn.closest('section');
+      const qs = unit.querySelectorAll('.q');
+      let score = 0, total = 0;
+      qs.forEach(q=>{
+        const kind = q.dataset.kind || 'text';
+        const ansNode = q.querySelector('.ans');
+        const input = q.querySelector('input, select');
+        if(!input) return;
+        total++;
+        let user = (input.tagName === 'SELECT') ? input.value : input.value;
+        let ok = false;
+        const expected = q.dataset.answer;
+        const alt = q.dataset.alt;
+
+        if(kind === 'number'){
+          const a = Number(expected);
+          const u = Number(user);
+          ok = !Number.isNaN(a) && !Number.isNaN(u) && a === u;
+        } else if(kind === 'frac'){
+          ok = normalizeFrac(user) === normalizeFrac(expected) || (alt && normalizeFrac(user) === normalizeFrac(alt));
+        } else if(kind === 'select'){
+          ok = normalizeFrac(user) === normalizeFrac(expected);
+        } else { // text
+          ok = normalizeFrac(user) === normalizeFrac(expected);
+        }
+
+        ansNode.style.display = 'block';
+        ansNode.className = 'ans ' + (ok ? 'ok' : 'no');
+        if(ok) score++;
+      });
+      const msg = document.createElement('div');
+      msg.className = 'tag';
+      msg.textContent = `Score: ${score} / ${total}`;
+      btn.insertAdjacentElement('afterend', msg);
+      setTimeout(()=>msg.remove(), 3500);
+    }
+
+    function toggleAnswers(){
+      document.querySelectorAll('.ans').forEach(a=>{
+        a.style.display = (a.style.display === 'block') ? 'none' : 'block';
+      });
+    }
+  </script>
+</body>
+</html>
