@@ -4,149 +4,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAST Grade 4 Math Guide</title>
+    <title>FAST Grade 4 Math — Study Guide</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: #fafafa;
+        :root {
+            --bg: #0f1220;
+            --card: #151935;
+            --text: #e7ebff;
+            --muted: #b9c0ff;
+            --accent: #6aa6ff;
+            --accent-2: #9c7cff;
         }
 
-        h1,
-        h2 {
-            color: #333;
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            color: var(--text);
+            background: radial-gradient(1200px 800px at 85% -10%, #1b2148, #0f1220 50%);
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+            background: linear-gradient(180deg, rgba(21, 25, 53, 0.9), rgba(21, 25, 53, 0.5) 65%, rgba(21, 25, 53, 0));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        h1 {
+            font-size: clamp(1.2rem, 0.9rem + 2vw, 2rem);
+            margin: 0;
+        }
+
+        .btn {
+            --bgc: #1f2550;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bgc);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px 40px;
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: var(--accent);
         }
 
         .example {
-            background: #fff;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            background: #121631;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             padding: 12px;
             margin: 12px 0;
         }
 
-        .back {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 8px 12px;
-            border-radius: 6px;
-            background: #0077cc;
-            color: #fff;
-            text-decoration: none;
+        .example strong {
+            color: var(--accent-2);
         }
 
-        .back:hover {
-            background: #005fa3;
+        footer {
+            text-align: center;
+            color: var(--muted);
+            opacity: 0.8;
+            padding: 30px 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>FAST Math Study Guide (Kid-Friendly Explanations)</h1>
-    <p>This page gives **easy, short explanations** you can use together for each problem type. Once you understand, go
-        back to the <a href="index.html">Practice Page</a>.</p>
+    <header>
+        <div class="wrap">
+            <h1>📘 Study Guide — FAST Grade 4 Math</h1>
+            <a href="index.html" class="btn" style="margin-left:auto;">← Back to Practice</a>
+        </div>
+    </header>
 
-    <h2>1. Whole Numbers</h2>
-    <div class="example">
-        <strong>Rounding 47,306 to the nearest thousand</strong><br>
-        Look at the hundreds digit (3). If it’s 5 or more, round up. If it’s 4 or less, stay.<br>
-        👉 3 is small, so we stay: <b>47,000</b>.<br>
-        <em>Think: 0–4 “stay on the floor,” 5–9 “climb the line.”</em>
-    </div>
+    <main>
+        <section>
+            <h2>Whole Numbers</h2>
+            <div class="example"><strong>Rounding 47,306</strong><br>Look at the hundreds digit (3). 3 is less than 5,
+                so stay at <b>47,000</b>.<br><em>0–4 stay, 5–9 climb.</em></div>
+            <div class="example"><strong>234 × 12</strong><br>234 × 10 = 2,340, 234 × 2 = 468. Add = <b>2,808</b>.</div>
+            <div class="example"><strong>504 ÷ 8</strong><br>8 goes into 50 about 6 times (6×8=48), remainder 2. Bring
+                down 4 → 24 ÷ 8 = 3. Answer = <b>63</b>.</div>
+        </section>
 
-    <div class="example">
-        <strong>Multiplying 234 × 12</strong><br>
-        Break it into easy chunks:<br>
-        - 234 × 10 = 2,340<br>
-        - 234 × 2 = 468<br>
-        Add them: 2,340 + 468 = <b>2,808</b>.<br>
-        <em>Tip: Cover the zero to do ×10, then just put the zero back.</em>
-    </div>
+        <section>
+            <h2>Fractions & Decimals</h2>
+            <div class="example"><strong>3/4 → ?/8</strong><br>Multiply top/bottom ×2 → <b>6/8</b>.</div>
+            <div class="example"><strong>3/8 + 2/8</strong><br>Same bottom, add tops: <b>5/8</b>.</div>
+            <div class="example"><strong>3/5 × 4</strong><br>3×4=12 → <b>12/5</b> or 2 2/5.</div>
+            <div class="example"><strong>45/100 → decimal</strong><br>Say it: forty-five hundredths = <b>0.45</b>.</div>
+        </section>
 
-    <div class="example">
-        <strong>Dividing 504 ÷ 8</strong><br>
-        Ask: “How many 8’s fit in 50?” That’s 6 (because 8×6=48). Remainder 2.<br>
-        Bring down the 4 → 24. Now 8 goes into 24 three times.<br>
-        Answer = <b>63</b>.
-    </div>
+        <section>
+            <h2>Measurement & Conversions</h2>
+            <div class="example"><strong>6 feet → inches</strong><br>6 × 12 = <b>72</b>.</div>
+            <div class="example"><strong>Half gallon → quarts</strong><br>1 gallon = 4 quarts, half = <b>2</b>.</div>
+            <div class="example"><strong>1.5 hours → minutes</strong><br>1 hr = 60, 0.5 hr = 30 → total = <b>90</b>.
+            </div>
+        </section>
 
-    <h2>2. Fractions & Decimals</h2>
-    <div class="example">
-        <strong>Equivalent Fractions (3/4 = ?/8)</strong><br>
-        Multiply top and bottom by the same number. 4×2=8, so 3×2=6.<br>
-        Answer = <b>6/8</b>.<br>
-        <em>Think: Make the bottom bigger, the top grows too.</em>
-    </div>
+        <section>
+            <h2>Geometry & Angles</h2>
+            <div class="example"><strong>Right angle</strong><br>Corner of paper = 90°.</div>
+            <div class="example"><strong>120° angle</strong><br>Bigger than 90, smaller than straight = <b>obtuse</b>.
+            </div>
+            <div class="example"><strong>Parallelogram</strong><br>Quadrilateral with 2 pairs of parallel sides.</div>
+        </section>
 
-    <div class="example">
-        <strong>Adding Fractions (3/8 + 2/8)</strong><br>
-        Same bottom = just add the tops. 3+2=5. Answer = <b>5/8</b>.
-    </div>
+        <section>
+            <h2>Data & Probability</h2>
+            <div class="example"><strong>Mode of 3,5,5,6,6,6,2</strong><br>Most common = <b>6</b>.</div>
+            <div class="example"><strong>Range of 2,6,4,9</strong><br>Biggest–smallest = 9–2 = <b>7</b>.</div>
+            <div class="example"><strong>Even roll on die</strong><br>Evens = 2,4,6 → 3/6 = <b>1/2</b>.</div>
+        </section>
+    </main>
 
-    <div class="example">
-        <strong>Multiply Fraction × Whole (3/5 × 4)</strong><br>
-        Do top × whole. 3×4=12 → put over 5. Answer = <b>12/5</b> or 2 2/5.<br>
-        <em>Think: four groups of 3/5 = 12/5.</em>
-    </div>
-
-    <div class="example">
-        <strong>Convert 45/100 to Decimal</strong><br>
-        Say it as “forty-five hundredths.” That’s <b>0.45</b>.
-    </div>
-
-    <h2>3. Measurement & Conversions</h2>
-    <div class="example">
-        <strong>6 feet → inches</strong><br>
-        1 foot = 12 inches. So 6 × 12 = <b>72 inches</b>.
-    </div>
-
-    <div class="example">
-        <strong>Half a gallon → quarts</strong><br>
-        1 gallon = 4 quarts. Half = 2 quarts.
-    </div>
-
-    <div class="example">
-        <strong>1.5 hours → minutes</strong><br>
-        1 hour = 60 min. Half an hour = 30 min. Total = <b>90 min</b>.
-    </div>
-
-    <h2>4. Geometry & Angles</h2>
-    <div class="example">
-        <strong>Right angle (90°)</strong><br>
-        Makes an “L” corner. Like the corner of a piece of paper.
-    </div>
-
-    <div class="example">
-        <strong>120° angle</strong><br>
-        Bigger than 90°, but less than a straight line. That’s an <b>obtuse angle</b>.
-    </div>
-
-    <div class="example">
-        <strong>Quadrilateral with 2 pairs of parallel sides</strong><br>
-        Like opposite sides of a window frame. Answer = <b>Parallelogram</b>.
-    </div>
-
-    <h2>5. Data & Probability</h2>
-    <div class="example">
-        <strong>Mode of 3, 5, 5, 6, 6, 6, 2</strong><br>
-        Mode = most common. 6 shows up most → Answer = <b>6</b>.
-    </div>
-
-    <div class="example">
-        <strong>Range of 2, 6, 4, 9</strong><br>
-        Biggest minus smallest = 9 − 2 = <b>7</b>.
-    </div>
-
-    <div class="example">
-        <strong>Probability of even on a die</strong><br>
-        Die has 6 sides. Evens = 2,4,6 → that’s 3 out of 6. Simplify to <b>1/2</b> (same as 50%).<br>
-        <em>Think: half the time you’ll roll even.</em>
-    </div>
-
-    <a href="index.html" class="back">← Back to Practice Page</a>
+    <footer>
+        Study guide for Grade 4 FAST Math • Simple, visual, and parent-friendly
+    </footer>
 </body>
 
 </html>
